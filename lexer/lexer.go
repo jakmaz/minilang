@@ -9,12 +9,14 @@ type Lexer struct {
 	ch           byte
 }
 
+// Creates a new lexer with the given input
 func New(input string) *Lexer {
 	l := &Lexer{input: input}
 	l.readChar()
 	return l
 }
 
+// Reads the next character from the input
 func (l *Lexer) readChar() {
 	if l.readPosition >= len(l.input) {
 		l.ch = 0
@@ -25,6 +27,7 @@ func (l *Lexer) readChar() {
 	l.readPosition += 1
 }
 
+// Returns the next token in the input
 func (l *Lexer) NextToken() token.Token {
 	var tok token.Token
 
@@ -54,6 +57,7 @@ func (l *Lexer) NextToken() token.Token {
 	return tok
 }
 
+// Constructs a new token with the given type and literal
 func newToken(tokenType token.TokenType, ch byte) token.Token {
 	return token.Token{Type: tokenType, Literal: string(ch)}
 }
