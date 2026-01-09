@@ -18,6 +18,7 @@ A minimal programming language interpreter written in Go.
 ## Assumptions
 
 - Only ASCII characters are supported
+- Only integers as numbers (no float, hex etc)
 
 ## Usage
 
@@ -30,3 +31,4 @@ go run main.go
 ```bash
 go test ./...
 ```
+
